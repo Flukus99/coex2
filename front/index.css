@@ -1,0 +1,70 @@
+body{
+    background-color: aliceblue;
+}
+.users{
+    background-color: white;
+    width: 400px;
+    height: 300px;
+    font-size: 30;
+}
+.barra_navegacion{
+    position: fixed;
+    width: 200px;
+    height: 100vh;
+    background-color:white;
+    display: grid;
+}
+.container_items_buton{
+    display:flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.item_nav{
+    display: flex;
+    cursor: pointer;
+}
+
+
+.container_button_list{
+    display: flex;
+    justify-content: end;
+    align-items: center;;
+}
+
+
+
+.cuerpo{
+    position: absolute;
+    left: 20vw;
+    width: 70vw;
+}
+.container{
+    display: grid;
+    place-items: center;
+}
+
+.users{
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+
+}
+
+.list_users{
+    display: none;
+}
+.no_active{
+    display: none;
+    
+}
+.active{
+    display: initial;
+}
+.edit,.delete{
+    cursor: pointer;
+    margin-left: 10px;
+}
+.crear_usuario{
+    display: none;;
+}
