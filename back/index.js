@@ -24,7 +24,7 @@ app.post('/user',(req,res)=>{
     .then((data)=>{res.json({
         message:"user created",
         data:data
-    })}).catch((err)=>{res.json({message:err.message})})
+    })}).catch((err)=>{res.json({message:"error creating user"})})
 })
 
 app.get("/users",async(req,res)=>{

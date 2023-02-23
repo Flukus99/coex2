@@ -17,7 +17,8 @@
     <div class="barra_navegacion">
       <h3>admin</h3>
       <div class="container_items">
-        <div class="item_nav">
+        
+          <a href="/" class="item_nav">
             <i class="bi bi-house-fill">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +37,8 @@
               </svg>
             </i>
             <h4>Inicio</h4>
-          </div>
+          </a>
+          
     
           <div class="item_nav" id="clientes_item">
             <i>
@@ -109,7 +111,8 @@
 
 
     <section class="crear_usuario">
-        <h1>CREAR USUARIO</h1>
+        <h1 class="active" id="crear_usuario">CREAR USUARIO</h1>
+        <h1 class="no_active" id="editar_usuario">EDITAR USUARIO</h1>
         <form >
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Nombre</label>
@@ -148,7 +151,8 @@
             
           
            
-            <button type="button" class="btn btn-primary" onclick="enviar_nuevo_usuario()">Submit</button>
+            <button type="button" class="btn btn-primary" id="boton_enviar">Submit</button>
+            
           </form>
     </section>
 
