@@ -19,6 +19,11 @@ body{
     justify-content: center;
     align-items: end;
 }
+.container_items_buton button{
+    margin-bottom: 60px;
+    background-color: #5e47d2;
+    border:#5e47d2;
+}
 
 .item_nav{
     display: flex;
@@ -28,7 +33,7 @@ body{
 
 .container_button_list{
     display: flex;
-    justify-content: end;
+    justify-content:space-between;
     align-items: center;;
 }
 
@@ -67,4 +72,34 @@ body{
 }
 .crear_usuario{
     display: none;;
+}
+#cuerpo_tabla{
+    background-color: white;
+}
+#cuerpo_tabla svg{
+    color: #5e47d2;
+}
+.cabecera_tabla{
+    background-color: #5e47d2;
+    color:white;
+}
+.titulo_cliemtes{
+    text-align: center;
+    color: #5e47d2;
+    margin-bottom: 50px;
+}
+.container_button_list{
+    margin-bottom: 50px;
+}
+.container_button_list button{
+    background-color: #5e47d2;
+    border: #5e47d2;
+}
+.item_nav{
+    color:gray;
+    text-decoration: none;
+   
+}
+.item_nav i{
+    margin-right: 10px;
 }

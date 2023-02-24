@@ -55,12 +55,12 @@ async function llamar_usuarios(){
     for(let i=0;i<respuesta_usuario.length;i++){
 
         let usuario=document.createElement('tr');
-        
+        usuario.classList.add("articulo");
         usuario.innerHTML=`
         <th scope="row" id="id${i}">${i+1}</th>
-        <td>${lista_usuarios[i].nombre}</td>
+        <td class="articulo_busqueda">${lista_usuarios[i].nombre} </td>
         <td>${lista_usuarios[i].apellido}</td>
-        <td>${lista_usuarios[i].cc}</td>
+        <td class="cc_busqueda">${lista_usuarios[i].cc}</td>
         <td>${lista_usuarios[i].direccion}</td>
         <td>${lista_usuarios[i].ciudad}</td>
         <td>${lista_usuarios[i].telefono}</td>
@@ -114,12 +114,56 @@ function nuevo_usuario(){
     document.getElementById("boton_enviar").setAttribute("onclick","enviar_nuevo_usuario()")
 
 }
+function enviar_editar_usuario(element){
+    document.getElementById("boton_enviar").setAttribute("onclick",`enviar_usuario("${element}")`)
+
+
+}
+function enviar_usuario(element){
+    let nombre=document.querySelector('#nombre').value;
+    let apellido=document.querySelector('#apellido').value;
+    let cc=document.querySelector('#cc').value;
+    let direccion=document.querySelector('#direccion').value;
+    let ciudad=document.querySelector('#ciudad').value;
+    let telefono=document.querySelector('#telefono').value;
+    let cupo_disponible=document.querySelector('#cupo_disponible').value;
+    let usuario={
+        nombre:nombre,
+        apellido:apellido,
+        cc:cc,
+        direccion:direccion,
+        ciudad:ciudad,
+        telefono:telefono,
+        cupo_disponible:cupo_disponible
+    }
+    let options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(usuario)
+    }
+    fetch(`http://localhost:3000/edit/user/${element}`, options)
+    .then(response => response.json())
+    .then(response =>{
+       
+            swal("Usuario editado con exito", "success");
+            limpiar(crear_usuario)
+            limpiar_tabla(cuerpo_tabla)
+            contador = 0
+            llamar_usuarios()
+            mostrar(tabla)
+           
+    })
+
+}
 function editar_usuario(id_usuario,id_element){
     limpiar(tabla);
     limpiar(document.getElementById("crear_usuario"))
     mostrar(document.getElementById("editar_usuario"))
     cargar_editar_usuario(id_usuario,id_element);
     mostrar(crear_usuario);
+    enviar_editar_usuario(id_usuario)
     
 }
 
@@ -202,3 +246,24 @@ function borrar_element(id_element){
 
     
 }
+
+
+
+
+document.addEventListener("keydown", e=>{
+  
+
+    if(e.target.matches("#buscador")){
+        document.querySelectorAll(".articulo_busqueda").forEach(element=>{
+            element.textContent.toLowerCase().includes(e.target.value.toLowerCase())
+            ?element.parentNode.classList.remove("no_active")
+            :element.parentNode.classList.add("no_active")
+
+
+        })
+        
+    }
+    
+       
+    
+})
